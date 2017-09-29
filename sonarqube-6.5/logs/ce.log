@@ -1,0 +1,22 @@
+2017.09.29 09:29:39 INFO  ce[][o.s.p.ProcessEntryPoint] Starting ce
+2017.09.29 09:29:39 INFO  ce[][o.s.ce.app.CeServer] Compute Engine starting up...
+2017.09.29 09:29:40 INFO  ce[][o.e.plugins] [Blue Diamond] modules [], plugins [], sites []
+2017.09.29 09:29:41 INFO  ce[][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [127.0.0.1:9001]
+2017.09.29 09:29:41 INFO  ce[][o.sonar.db.Database] Create JDBC data source for jdbc:h2:tcp://127.0.0.1:9092/sonar
+2017.09.29 09:29:41 WARN  ce[][o.s.d.DatabaseChecker] H2 database should be used for evaluation purpose only
+2017.09.29 09:29:42 INFO  ce[][o.s.s.p.ServerFileSystemImpl] SonarQube home: C:\Sonar\sonarqube-6.5
+2017.09.29 09:29:42 INFO  ce[][o.s.c.c.CePluginRepository] Load plugins
+2017.09.29 09:29:48 INFO  ce[][o.s.c.q.PurgeCeActivities] Delete the Compute Engine tasks created before Sun Apr 02 09:29:48 EDT 2017
+2017.09.29 09:29:48 INFO  ce[][o.s.ce.app.CeServer] Compute Engine is operational
+2017.09.29 09:46:10 INFO  ce[][o.s.p.StopWatcher] Stopping process
+2017.09.29 09:46:10 INFO  ce[][o.s.ce.app.CeServer] Compute Engine shutting down...
+2017.09.29 09:46:48 INFO  ce[][o.s.p.ProcessEntryPoint] Starting ce
+2017.09.29 09:46:48 INFO  ce[][o.s.ce.app.CeServer] Compute Engine starting up...
+2017.09.29 09:46:48 INFO  ce[][o.e.plugins] [Korvac] modules [], plugins [], sites []
+2017.09.29 09:46:49 INFO  ce[][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [127.0.0.1:9001]
+2017.09.29 09:46:49 INFO  ce[][o.sonar.db.Database] Create JDBC data source for jdbc:h2:tcp://127.0.0.1:9092/sonar
+2017.09.29 09:46:49 WARN  ce[][o.s.d.DatabaseChecker] H2 database should be used for evaluation purpose only
+2017.09.29 09:46:50 INFO  ce[][o.s.s.p.ServerFileSystemImpl] SonarQube home: C:\Sonar\sonarqube-6.5
+2017.09.29 09:46:50 INFO  ce[][o.s.c.c.CePluginRepository] Load plugins
+2017.09.29 09:46:53 INFO  ce[][o.s.c.q.PurgeCeActivities] Delete the Compute Engine tasks created before Sun Apr 02 09:46:53 EDT 2017
+2017.09.29 09:46:53 INFO  ce[][o.s.ce.app.CeServer] Compute Engine is operational

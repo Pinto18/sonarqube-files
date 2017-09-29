@@ -1,0 +1,14 @@
+2017.09.28 14:07:45 INFO  ce[][o.s.p.ProcessEntryPoint] Starting ce
+2017.09.28 14:07:45 INFO  ce[][o.s.ce.app.CeServer] Compute Engine starting up...
+2017.09.28 14:07:45 INFO  ce[][o.e.plugins] [The Night Man] modules [], plugins [], sites []
+2017.09.28 14:07:46 INFO  ce[][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [127.0.0.1:9001]
+2017.09.28 14:07:46 INFO  ce[][o.sonar.db.Database] Create JDBC data source for jdbc:h2:tcp://127.0.0.1:9092/sonar
+2017.09.28 14:07:46 WARN  ce[][o.s.d.DatabaseChecker] H2 database should be used for evaluation purpose only
+2017.09.28 14:07:47 INFO  ce[][o.s.s.p.ServerFileSystemImpl] SonarQube home: C:\Sonar\sonarqube-6.5
+2017.09.28 14:07:48 INFO  ce[][o.s.c.c.CePluginRepository] Load plugins
+2017.09.28 14:07:54 INFO  ce[][o.s.c.q.PurgeCeActivities] Delete the Compute Engine tasks created before Sat Apr 01 14:07:54 EDT 2017
+2017.09.28 14:07:54 INFO  ce[][o.s.ce.app.CeServer] Compute Engine is operational
+2017.09.28 16:01:30 INFO  ce[AV7KFG2frWvUPt-1a8MR][o.s.c.t.CeWorkerImpl] Execute task | project=fam4ever | type=REPORT | id=AV7KFG2frWvUPt-1a8MR
+2017.09.28 16:01:33 INFO  ce[AV7KFG2frWvUPt-1a8MR][o.s.c.t.CeWorkerImpl] Executed task | project=fam4ever | type=REPORT | id=AV7KFG2frWvUPt-1a8MR | time=2713ms
+2017.09.28 16:47:49 INFO  ce[][o.s.p.StopWatcher] Stopping process
+2017.09.28 16:47:49 INFO  ce[][o.s.ce.app.CeServer] Compute Engine shutting down...

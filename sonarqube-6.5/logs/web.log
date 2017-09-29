@@ -1,0 +1,916 @@
+2017.09.29 08:07:51 INFO  web[][o.s.p.ProcessEntryPoint] Starting web
+2017.09.29 08:07:52 ERROR web[][o.a.c.h.Http11NioProtocol] Failed to initialize end point associated with ProtocolHandler ["http-nio-192.0.0.1-9000"]
+java.net.BindException: Cannot assign requested address: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Unknown Source)
+	at sun.nio.ch.Net.bind(Unknown Source)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(Unknown Source)
+	at sun.nio.ch.ServerSocketAdaptor.bind(Unknown Source)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:982)
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.init(AbstractJsseEndpoint.java:244)
+	at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:620)
+	at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:66)
+	at org.apache.catalina.connector.Connector.initInternal(Connector.java:997)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:549)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:875)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:140)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:367)
+	at org.sonar.server.app.EmbeddedTomcat.start(EmbeddedTomcat.java:61)
+	at org.sonar.server.app.WebServer.start(WebServer.java:51)
+	at org.sonar.process.ProcessEntryPoint.launch(ProcessEntryPoint.java:111)
+	at org.sonar.process.ProcessEntryPoint.launch(ProcessEntryPoint.java:98)
+	at org.sonar.server.app.WebServer.main(WebServer.java:91)
+2017.09.29 08:07:52 WARN  web[][o.s.p.ProcessEntryPoint] Fail to start web
+java.lang.RuntimeException: org.apache.catalina.LifecycleException: Failed to initialize component [StandardServer[-1]]
+	at com.google.common.base.Throwables.propagate(Throwables.java:160)
+	at org.sonar.server.app.EmbeddedTomcat.start(EmbeddedTomcat.java:64)
+	at org.sonar.server.app.WebServer.start(WebServer.java:51)
+	at org.sonar.process.ProcessEntryPoint.launch(ProcessEntryPoint.java:111)
+	at org.sonar.process.ProcessEntryPoint.launch(ProcessEntryPoint.java:98)
+	at org.sonar.server.app.WebServer.main(WebServer.java:91)
+Caused by: org.apache.catalina.LifecycleException: Failed to initialize component [StandardServer[-1]]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:112)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:140)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:367)
+	at org.sonar.server.app.EmbeddedTomcat.start(EmbeddedTomcat.java:61)
+	... 4 common frames omitted
+Caused by: org.apache.catalina.LifecycleException: Failed to initialize component [StandardService[Tomcat]]
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:112)
+	at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:875)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	... 7 common frames omitted
+Caused by: org.apache.catalina.LifecycleException: Failed to initialize connector [Connector[HTTP/1.1-9000]]
+	at org.apache.catalina.core.StandardService.initInternal(StandardService.java:556)
+	at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:107)
+	... 9 common frames omitted
+2017.09.29 08:51:31 INFO  web[][o.s.p.ProcessEntryPoint] Starting web
+2017.09.29 08:51:31 INFO  web[][o.a.t.u.n.NioSelectorPool] Using a shared selector for servlet write/read
+2017.09.29 08:51:33 INFO  web[][o.e.plugins] [Stevie Hunter] modules [], plugins [], sites []
+2017.09.29 08:51:33 INFO  web[][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [127.0.0.1:9001]
+2017.09.29 08:51:33 INFO  web[][o.s.s.p.LogServerVersion] SonarQube Server / 6.5.0.27846 / ef2ca5b33e5795b841d45e0b20fef3cb90391719
+2017.09.29 08:51:33 INFO  web[][o.sonar.db.Database] Create JDBC data source for jdbc:sqlserver://localhost;databaseName=sonar;integratedSecurity=true
+2017.09.29 08:51:50 ERROR web[][o.s.s.p.Platform] Web server startup failed
+java.lang.IllegalStateException: Can not connect to database. Please check connectivity and settings (see the properties prefixed by 'sonar.jdbc.').
+	at org.sonar.db.DefaultDatabase.checkConnection(DefaultDatabase.java:108)
+	at org.sonar.db.DefaultDatabase.start(DefaultDatabase.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.picocontainer.lifecycle.ReflectionLifecycleStrategy.invokeMethod(ReflectionLifecycleStrategy.java:110)
+	at org.picocontainer.lifecycle.ReflectionLifecycleStrategy.start(ReflectionLifecycleStrategy.java:89)
+	at org.sonar.core.platform.ComponentContainer$1.start(ComponentContainer.java:320)
+	at org.picocontainer.injectors.AbstractInjectionFactory$LifecycleAdapter.start(AbstractInjectionFactory.java:84)
+	at org.picocontainer.behaviors.AbstractBehavior.start(AbstractBehavior.java:169)
+	at org.picocontainer.behaviors.Stored$RealComponentLifecycle.start(Stored.java:132)
+	at org.picocontainer.behaviors.Stored.start(Stored.java:110)
+	at org.picocontainer.DefaultPicoContainer.potentiallyStartAdapter(DefaultPicoContainer.java:1016)
+	at org.picocontainer.DefaultPicoContainer.startAdapters(DefaultPicoContainer.java:1009)
+	at org.picocontainer.DefaultPicoContainer.start(DefaultPicoContainer.java:767)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:143)
+	at org.sonar.server.platform.platformlevel.PlatformLevel.start(PlatformLevel.java:88)
+	at org.sonar.server.platform.Platform.start(Platform.java:231)
+	at org.sonar.server.platform.Platform.startLevel1Container(Platform.java:190)
+	at org.sonar.server.platform.Platform.init(Platform.java:86)
+	at org.sonar.server.platform.web.PlatformServletContextListener.contextInitialized(PlatformServletContextListener.java:43)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4745)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5207)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1419)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1409)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (The TCP/IP connection to the host localhost, port 1433 has failed. Error: "Connection refused: connect. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1549)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1388)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at org.sonar.db.profiling.NullConnectionInterceptor.getConnection(NullConnectionInterceptor.java:31)
+	at org.sonar.db.profiling.ProfiledDataSource.getConnection(ProfiledDataSource.java:323)
+	at org.sonar.db.DefaultDatabase.checkConnection(DefaultDatabase.java:106)
+	... 30 common frames omitted
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host localhost, port 1433 has failed. Error: "Connection refused: connect. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:206)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:257)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2385)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:567)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:1955)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:1616)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:1447)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:788)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1187)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1556)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1545)
+	... 35 common frames omitted
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][[timer]]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.elasticsearch.threadpool.ThreadPool$EstimatedTimeThread.run(ThreadPool.java:747)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][scheduler][T#1]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(Unknown Source)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(Unknown Source)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][transport_client_worker][T#1]{New I/O worker #1}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][transport_client_worker][T#2]{New I/O worker #2}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][transport_client_worker][T#3]{New I/O worker #3}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][transport_client_worker][T#4]{New I/O worker #4}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][transport_client_worker][T#5]{New I/O worker #5}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][transport_client_worker][T#6]{New I/O worker #6}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][transport_client_worker][T#7]{New I/O worker #7}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][transport_client_worker][T#8]{New I/O worker #8}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][transport_client_boss][T#1]{New I/O boss #9}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:42)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][transport_client_timer][T#1]{Hashed wheel timer #1}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.jboss.netty.util.HashedWheelTimer$Worker.waitForNextTick(HashedWheelTimer.java:445)
+ org.jboss.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:364)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][generic][T#1]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+ java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(Unknown Source)
+ java.util.concurrent.SynchronousQueue$TransferStack.transfer(Unknown Source)
+ java.util.concurrent.SynchronousQueue.poll(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+2017.09.29 08:51:50 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Stevie Hunter][generic][T#2]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+ java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(Unknown Source)
+ java.util.concurrent.SynchronousQueue$TransferStack.transfer(Unknown Source)
+ java.util.concurrent.SynchronousQueue.poll(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:51:50 INFO  web[][o.s.s.a.EmbeddedTomcat] HTTP connector enabled on port 9090
+2017.09.29 08:52:16 INFO  web[][o.s.p.ProcessEntryPoint] Starting web
+2017.09.29 08:52:17 INFO  web[][o.a.t.u.n.NioSelectorPool] Using a shared selector for servlet write/read
+2017.09.29 08:52:17 INFO  web[][o.e.plugins] [Brunnhilda] modules [], plugins [], sites []
+2017.09.29 08:52:18 INFO  web[][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [127.0.0.1:9001]
+2017.09.29 08:52:18 INFO  web[][o.s.s.p.LogServerVersion] SonarQube Server / 6.5.0.27846 / ef2ca5b33e5795b841d45e0b20fef3cb90391719
+2017.09.29 08:52:18 INFO  web[][o.sonar.db.Database] Create JDBC data source for jdbc:sqlserver://localhost;databaseName=sonar;integratedSecurity=true
+2017.09.29 08:52:34 ERROR web[][o.s.s.p.Platform] Web server startup failed
+java.lang.IllegalStateException: Can not connect to database. Please check connectivity and settings (see the properties prefixed by 'sonar.jdbc.').
+	at org.sonar.db.DefaultDatabase.checkConnection(DefaultDatabase.java:108)
+	at org.sonar.db.DefaultDatabase.start(DefaultDatabase.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.picocontainer.lifecycle.ReflectionLifecycleStrategy.invokeMethod(ReflectionLifecycleStrategy.java:110)
+	at org.picocontainer.lifecycle.ReflectionLifecycleStrategy.start(ReflectionLifecycleStrategy.java:89)
+	at org.sonar.core.platform.ComponentContainer$1.start(ComponentContainer.java:320)
+	at org.picocontainer.injectors.AbstractInjectionFactory$LifecycleAdapter.start(AbstractInjectionFactory.java:84)
+	at org.picocontainer.behaviors.AbstractBehavior.start(AbstractBehavior.java:169)
+	at org.picocontainer.behaviors.Stored$RealComponentLifecycle.start(Stored.java:132)
+	at org.picocontainer.behaviors.Stored.start(Stored.java:110)
+	at org.picocontainer.DefaultPicoContainer.potentiallyStartAdapter(DefaultPicoContainer.java:1016)
+	at org.picocontainer.DefaultPicoContainer.startAdapters(DefaultPicoContainer.java:1009)
+	at org.picocontainer.DefaultPicoContainer.start(DefaultPicoContainer.java:767)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:143)
+	at org.sonar.server.platform.platformlevel.PlatformLevel.start(PlatformLevel.java:88)
+	at org.sonar.server.platform.Platform.start(Platform.java:231)
+	at org.sonar.server.platform.Platform.startLevel1Container(Platform.java:190)
+	at org.sonar.server.platform.Platform.init(Platform.java:86)
+	at org.sonar.server.platform.web.PlatformServletContextListener.contextInitialized(PlatformServletContextListener.java:43)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4745)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5207)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1419)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1409)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (The TCP/IP connection to the host localhost, port 1433 has failed. Error: "Connection refused: connect. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1549)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1388)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at org.sonar.db.profiling.NullConnectionInterceptor.getConnection(NullConnectionInterceptor.java:31)
+	at org.sonar.db.profiling.ProfiledDataSource.getConnection(ProfiledDataSource.java:323)
+	at org.sonar.db.DefaultDatabase.checkConnection(DefaultDatabase.java:106)
+	... 30 common frames omitted
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host localhost, port 1433 has failed. Error: "Connection refused: connect. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:206)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:257)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2385)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:567)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:1955)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:1616)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:1447)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:788)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1187)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1556)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1545)
+	... 35 common frames omitted
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][[timer]]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.elasticsearch.threadpool.ThreadPool$EstimatedTimeThread.run(ThreadPool.java:747)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][scheduler][T#1]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(Unknown Source)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(Unknown Source)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][transport_client_worker][T#1]{New I/O worker #1}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][transport_client_worker][T#2]{New I/O worker #2}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][transport_client_worker][T#3]{New I/O worker #3}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][transport_client_worker][T#4]{New I/O worker #4}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][transport_client_worker][T#5]{New I/O worker #5}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][transport_client_worker][T#6]{New I/O worker #6}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][transport_client_worker][T#7]{New I/O worker #7}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][transport_client_worker][T#8]{New I/O worker #8}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][transport_client_boss][T#1]{New I/O boss #9}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:42)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][transport_client_timer][T#1]{Hashed wheel timer #1}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.jboss.netty.util.HashedWheelTimer$Worker.waitForNextTick(HashedWheelTimer.java:445)
+ org.jboss.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:364)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Brunnhilda][generic][T#1]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+ java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(Unknown Source)
+ java.util.concurrent.SynchronousQueue$TransferStack.transfer(Unknown Source)
+ java.util.concurrent.SynchronousQueue.poll(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 08:52:34 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+2017.09.29 08:52:34 INFO  web[][o.s.s.a.EmbeddedTomcat] HTTP connector enabled on port 9090
+2017.09.29 09:25:58 INFO  web[][o.s.p.ProcessEntryPoint] Starting web
+2017.09.29 09:25:58 INFO  web[][o.a.t.u.n.NioSelectorPool] Using a shared selector for servlet write/read
+2017.09.29 09:25:59 INFO  web[][o.e.plugins] [Aminedi] modules [], plugins [], sites []
+2017.09.29 09:26:00 INFO  web[][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [127.0.0.1:9001]
+2017.09.29 09:26:00 INFO  web[][o.s.s.p.LogServerVersion] SonarQube Server / 6.5.0.27846 / ef2ca5b33e5795b841d45e0b20fef3cb90391719
+2017.09.29 09:26:00 INFO  web[][o.sonar.db.Database] Create JDBC data source for jdbc:sqlserver://localhost;databaseName=sonar;integratedSecurity=true
+2017.09.29 09:26:17 ERROR web[][o.s.s.p.Platform] Web server startup failed
+java.lang.IllegalStateException: Can not connect to database. Please check connectivity and settings (see the properties prefixed by 'sonar.jdbc.').
+	at org.sonar.db.DefaultDatabase.checkConnection(DefaultDatabase.java:108)
+	at org.sonar.db.DefaultDatabase.start(DefaultDatabase.java:75)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.picocontainer.lifecycle.ReflectionLifecycleStrategy.invokeMethod(ReflectionLifecycleStrategy.java:110)
+	at org.picocontainer.lifecycle.ReflectionLifecycleStrategy.start(ReflectionLifecycleStrategy.java:89)
+	at org.sonar.core.platform.ComponentContainer$1.start(ComponentContainer.java:320)
+	at org.picocontainer.injectors.AbstractInjectionFactory$LifecycleAdapter.start(AbstractInjectionFactory.java:84)
+	at org.picocontainer.behaviors.AbstractBehavior.start(AbstractBehavior.java:169)
+	at org.picocontainer.behaviors.Stored$RealComponentLifecycle.start(Stored.java:132)
+	at org.picocontainer.behaviors.Stored.start(Stored.java:110)
+	at org.picocontainer.DefaultPicoContainer.potentiallyStartAdapter(DefaultPicoContainer.java:1016)
+	at org.picocontainer.DefaultPicoContainer.startAdapters(DefaultPicoContainer.java:1009)
+	at org.picocontainer.DefaultPicoContainer.start(DefaultPicoContainer.java:767)
+	at org.sonar.core.platform.ComponentContainer.startComponents(ComponentContainer.java:143)
+	at org.sonar.server.platform.platformlevel.PlatformLevel.start(PlatformLevel.java:88)
+	at org.sonar.server.platform.Platform.start(Platform.java:231)
+	at org.sonar.server.platform.Platform.startLevel1Container(Platform.java:190)
+	at org.sonar.server.platform.Platform.init(Platform.java:86)
+	at org.sonar.server.platform.web.PlatformServletContextListener.contextInitialized(PlatformServletContextListener.java:43)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4745)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5207)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1419)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1409)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.apache.commons.dbcp.SQLNestedException: Cannot create PoolableConnectionFactory (The TCP/IP connection to the host localhost, port 1433 has failed. Error: "Connection refused: connect. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1549)
+	at org.apache.commons.dbcp.BasicDataSource.createDataSource(BasicDataSource.java:1388)
+	at org.apache.commons.dbcp.BasicDataSource.getConnection(BasicDataSource.java:1044)
+	at org.sonar.db.profiling.NullConnectionInterceptor.getConnection(NullConnectionInterceptor.java:31)
+	at org.sonar.db.profiling.ProfiledDataSource.getConnection(ProfiledDataSource.java:323)
+	at org.sonar.db.DefaultDatabase.checkConnection(DefaultDatabase.java:106)
+	... 30 common frames omitted
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host localhost, port 1433 has failed. Error: "Connection refused: connect. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall.".
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:206)
+	at com.microsoft.sqlserver.jdbc.SQLServerException.ConvertConnectExceptionToSQLServerException(SQLServerException.java:257)
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2385)
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:567)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:1955)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:1616)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:1447)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:788)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1187)
+	at org.apache.commons.dbcp.DriverConnectionFactory.createConnection(DriverConnectionFactory.java:38)
+	at org.apache.commons.dbcp.PoolableConnectionFactory.makeObject(PoolableConnectionFactory.java:582)
+	at org.apache.commons.dbcp.BasicDataSource.validateConnectionFactory(BasicDataSource.java:1556)
+	at org.apache.commons.dbcp.BasicDataSource.createPoolableConnectionFactory(BasicDataSource.java:1545)
+	... 35 common frames omitted
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][[timer]]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.elasticsearch.threadpool.ThreadPool$EstimatedTimeThread.run(ThreadPool.java:747)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][scheduler][T#1]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(Unknown Source)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(Unknown Source)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][transport_client_worker][T#1]{New I/O worker #1}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][transport_client_worker][T#2]{New I/O worker #2}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][transport_client_worker][T#3]{New I/O worker #3}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][transport_client_worker][T#4]{New I/O worker #4}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][transport_client_worker][T#5]{New I/O worker #5}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][transport_client_worker][T#6]{New I/O worker #6}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][transport_client_worker][T#7]{New I/O worker #7}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][transport_client_worker][T#8]{New I/O worker #8}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:89)
+ org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:178)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][transport_client_boss][T#1]{New I/O boss #9}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+ sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+ sun.nio.ch.SelectorImpl.select(Unknown Source)
+ org.jboss.netty.channel.socket.nio.SelectorUtil.select(SelectorUtil.java:68)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.select(AbstractNioSelector.java:434)
+ org.jboss.netty.channel.socket.nio.AbstractNioSelector.run(AbstractNioSelector.java:212)
+ org.jboss.netty.channel.socket.nio.NioClientBoss.run(NioClientBoss.java:42)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][transport_client_timer][T#1]{Hashed wheel timer #1}] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Thread.sleep(Native Method)
+ org.jboss.netty.util.HashedWheelTimer$Worker.waitForNextTick(HashedWheelTimer.java:445)
+ org.jboss.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:364)
+ org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][generic][T#1]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+ java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(Unknown Source)
+ java.util.concurrent.SynchronousQueue$TransferStack.transfer(Unknown Source)
+ java.util.concurrent.SynchronousQueue.poll(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+2017.09.29 09:26:17 WARN  web[][o.a.c.l.WebappClassLoaderBase] The web application [sonar] appears to have started a thread named [elasticsearch[Aminedi][generic][T#2]] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+ java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(Unknown Source)
+ java.util.concurrent.SynchronousQueue$TransferStack.transfer(Unknown Source)
+ java.util.concurrent.SynchronousQueue.poll(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.getTask(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+2017.09.29 09:26:17 INFO  web[][o.s.s.a.EmbeddedTomcat] HTTP connector enabled on port 9090
+2017.09.29 09:29:22 INFO  web[][o.s.p.ProcessEntryPoint] Starting web
+2017.09.29 09:29:23 INFO  web[][o.a.t.u.n.NioSelectorPool] Using a shared selector for servlet write/read
+2017.09.29 09:29:24 INFO  web[][o.e.plugins] [Alistair Smythe] modules [], plugins [], sites []
+2017.09.29 09:29:25 INFO  web[][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [127.0.0.1:9001]
+2017.09.29 09:29:25 INFO  web[][o.s.s.p.LogServerVersion] SonarQube Server / 6.5.0.27846 / ef2ca5b33e5795b841d45e0b20fef3cb90391719
+2017.09.29 09:29:26 INFO  web[][o.s.s.p.d.EmbeddedDatabase] Starting embedded database on port 9092 with url jdbc:h2:tcp://127.0.0.1:9092/sonar
+2017.09.29 09:29:26 INFO  web[][o.s.s.p.d.EmbeddedDatabase] Embedded database started. Data stored in: C:\Sonar\sonarqube-6.5\data
+2017.09.29 09:29:26 INFO  web[][o.sonar.db.Database] Create JDBC data source for jdbc:h2:tcp://127.0.0.1:9092/sonar
+2017.09.29 09:29:26 WARN  web[][o.s.d.DatabaseChecker] H2 database should be used for evaluation purpose only
+2017.09.29 09:29:27 INFO  web[][o.s.s.p.ServerFileSystemImpl] SonarQube home: C:\Sonar\sonarqube-6.5
+2017.09.29 09:29:28 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin C# / 5.10.1.1411 / 748a97f89a5327cbea5cfe1f8aebe87d073c74a0
+2017.09.29 09:29:28 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin Flex / 2.3 / 79167f762219bea1fd181ff5ef6ca4b34abd1675
+2017.09.29 09:29:28 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin Git / 1.2 / a713dd64daf8719ba4e7f551f9a1966c62690c17
+2017.09.29 09:29:28 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SVN / 1.5.0.715 / 0210a6f08400da8cab1a20e118ee3c97f8847ee4
+2017.09.29 09:29:28 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SonarJS / 3.1.1.5128 / 564d130c281685fde03e85964417158e32a17b2b
+2017.09.29 09:29:28 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SonarJava / 4.12.0.11033 / fa9fe66b0cb1b6ab8d7f341cc1f7908897a9cf33
+2017.09.29 09:29:28 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SonarPHP / 2.10.0.2087 / b24a8fcb16d37cae2f8c6741141f4136c444851f
+2017.09.29 09:29:28 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SonarPython / 1.8.0.1496 / 3fe3bc4d0273a5721ea2fb368dc45b1bb82fede3
+2017.09.29 09:29:28 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SonarXML / 1.4.3.1027 / 39588245cecf538bb27be4e496ff303b0143d20b
+2017.09.29 09:29:31 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.ws.WebServiceFilter@67edc04b [pattern=UrlPattern{inclusions=[/api/system/migrate_db/*, ...], exclusions=[/api/properties*, ...]}]
+2017.09.29 09:29:31 INFO  web[][o.s.s.a.EmbeddedTomcat] HTTP connector enabled on port 9090
+2017.09.29 09:29:32 INFO  web[][o.s.s.p.UpdateCenterClient] Update center: https://update.sonarsource.org/update-center.properties (no proxy)
+2017.09.29 09:29:33 INFO  web[][o.s.s.n.NotificationDaemon] Notification service started (delay 60 sec.)
+2017.09.29 09:29:33 INFO  web[][o.s.s.s.RegisterMetrics] Register metrics
+2017.09.29 09:29:33 INFO  web[][o.s.s.r.RegisterRules] Register rules
+2017.09.29 09:29:36 INFO  web[][o.s.s.q.BuiltInQProfileRepositoryImpl] Load quality profiles
+2017.09.29 09:29:36 INFO  web[][o.s.s.q.RegisterQualityProfiles] Register quality profiles
+2017.09.29 09:29:36 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile cs/Sonar way
+2017.09.29 09:29:37 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile java/Sonar way
+2017.09.29 09:29:37 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile flex/Sonar way
+2017.09.29 09:29:37 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile xml/Sonar way
+2017.09.29 09:29:38 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile py/Sonar way
+2017.09.29 09:29:38 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile php/Sonar way
+2017.09.29 09:29:38 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile php/PSR-2
+2017.09.29 09:29:38 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile php/Drupal
+2017.09.29 09:29:38 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile js/Sonar way Recommended
+2017.09.29 09:29:38 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile js/Sonar way
+2017.09.29 09:29:38 INFO  web[][o.s.s.s.RegisterPermissionTemplates] Register permission templates
+2017.09.29 09:29:38 INFO  web[][o.s.s.s.RenameDeprecatedPropertyKeys] Rename deprecated property keys
+2017.09.29 09:29:38 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.ws.WebServiceFilter@7a9b4aa0 [pattern=UrlPattern{inclusions=[/api/measures/component/*, ...], exclusions=[/api/properties*, ...]}]
+2017.09.29 09:29:38 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.ws.DeprecatedPropertiesWsFilter@87c68fd [pattern=UrlPattern{inclusions=[/api/properties/*], exclusions=[]}]
+2017.09.29 09:29:38 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.ws.WebServiceReroutingFilter@4f8da24d [pattern=UrlPattern{inclusions=[/api/components/bulk_update_key, ...], exclusions=[]}]
+2017.09.29 09:29:38 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.InitFilter@fc71149 [pattern=UrlPattern{inclusions=[/sessions/init/*], exclusions=[]}]
+2017.09.29 09:29:38 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.OAuth2CallbackFilter@5256adb9 [pattern=UrlPattern{inclusions=[/oauth2/callback/*], exclusions=[]}]
+2017.09.29 09:29:38 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.ws.LoginAction@29bb73e2 [pattern=UrlPattern{inclusions=[/api/authentication/login], exclusions=[]}]
+2017.09.29 09:29:38 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.ws.LogoutAction@61921c0d [pattern=UrlPattern{inclusions=[/api/authentication/logout], exclusions=[]}]
+2017.09.29 09:29:38 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.ws.ValidateAction@6310d3c [pattern=UrlPattern{inclusions=[/api/authentication/validate], exclusions=[]}]
+2017.09.29 09:29:38 INFO  web[][o.s.s.n.NotificationDaemon] Notification service started (delay 60 sec.)
+2017.09.29 09:29:38 INFO  web[][o.s.s.n.NotificationDaemon] Notification service stopped
+2017.09.29 09:29:38 INFO  web[][o.s.s.p.Platform] WebServer is operational
+2017.09.29 09:46:12 INFO  web[][o.s.p.StopWatcher] Stopping process
+2017.09.29 09:46:12 INFO  web[][o.s.s.n.NotificationDaemon] Notification service stopped
+2017.09.29 09:46:12 INFO  web[][o.s.s.p.d.EmbeddedDatabase] Embedded database stopped
+2017.09.29 09:46:32 INFO  web[][o.s.p.ProcessEntryPoint] Starting web
+2017.09.29 09:46:33 INFO  web[][o.a.t.u.n.NioSelectorPool] Using a shared selector for servlet write/read
+2017.09.29 09:46:34 INFO  web[][o.e.plugins] [Carter Ghazikhanian] modules [], plugins [], sites []
+2017.09.29 09:46:35 INFO  web[][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [127.0.0.1:9001]
+2017.09.29 09:46:35 INFO  web[][o.s.s.p.LogServerVersion] SonarQube Server / 6.5.0.27846 / ef2ca5b33e5795b841d45e0b20fef3cb90391719
+2017.09.29 09:46:35 INFO  web[][o.s.s.p.d.EmbeddedDatabase] Starting embedded database on port 9092 with url jdbc:h2:tcp://127.0.0.1:9092/sonar
+2017.09.29 09:46:35 INFO  web[][o.s.s.p.d.EmbeddedDatabase] Embedded database started. Data stored in: C:\Sonar\sonarqube-6.5\data
+2017.09.29 09:46:35 INFO  web[][o.sonar.db.Database] Create JDBC data source for jdbc:h2:tcp://127.0.0.1:9092/sonar
+2017.09.29 09:46:36 WARN  web[][o.s.d.DatabaseChecker] H2 database should be used for evaluation purpose only
+2017.09.29 09:46:37 INFO  web[][o.s.s.p.ServerFileSystemImpl] SonarQube home: C:\Sonar\sonarqube-6.5
+2017.09.29 09:46:38 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin C# / 5.10.1.1411 / 748a97f89a5327cbea5cfe1f8aebe87d073c74a0
+2017.09.29 09:46:38 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin Flex / 2.3 / 79167f762219bea1fd181ff5ef6ca4b34abd1675
+2017.09.29 09:46:38 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin Git / 1.2 / a713dd64daf8719ba4e7f551f9a1966c62690c17
+2017.09.29 09:46:38 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SVN / 1.5.0.715 / 0210a6f08400da8cab1a20e118ee3c97f8847ee4
+2017.09.29 09:46:38 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SonarJS / 3.1.1.5128 / 564d130c281685fde03e85964417158e32a17b2b
+2017.09.29 09:46:38 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SonarJava / 4.12.0.11033 / fa9fe66b0cb1b6ab8d7f341cc1f7908897a9cf33
+2017.09.29 09:46:38 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SonarPHP / 2.10.0.2087 / b24a8fcb16d37cae2f8c6741141f4136c444851f
+2017.09.29 09:46:38 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SonarPython / 1.8.0.1496 / 3fe3bc4d0273a5721ea2fb368dc45b1bb82fede3
+2017.09.29 09:46:38 INFO  web[][o.s.s.p.ServerPluginRepository] Deploy plugin SonarXML / 1.4.3.1027 / 39588245cecf538bb27be4e496ff303b0143d20b
+2017.09.29 09:46:39 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.ws.WebServiceFilter@2a161719 [pattern=UrlPattern{inclusions=[/api/system/migrate_db/*, ...], exclusions=[/api/properties*, ...]}]
+2017.09.29 09:46:40 INFO  web[][o.s.s.a.EmbeddedTomcat] HTTP connector enabled on port 9000
+2017.09.29 09:46:41 INFO  web[][o.s.s.p.UpdateCenterClient] Update center: https://update.sonarsource.org/update-center.properties (no proxy)
+2017.09.29 09:46:41 INFO  web[][o.s.s.n.NotificationDaemon] Notification service started (delay 60 sec.)
+2017.09.29 09:46:42 INFO  web[][o.s.s.s.RegisterMetrics] Register metrics
+2017.09.29 09:46:42 INFO  web[][o.s.s.r.RegisterRules] Register rules
+2017.09.29 09:46:45 INFO  web[][o.s.s.q.BuiltInQProfileRepositoryImpl] Load quality profiles
+2017.09.29 09:46:45 INFO  web[][o.s.s.q.RegisterQualityProfiles] Register quality profiles
+2017.09.29 09:46:45 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile cs/Sonar way
+2017.09.29 09:46:45 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile java/Sonar way
+2017.09.29 09:46:46 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile flex/Sonar way
+2017.09.29 09:46:46 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile xml/Sonar way
+2017.09.29 09:46:46 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile py/Sonar way
+2017.09.29 09:46:46 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile php/Sonar way
+2017.09.29 09:46:46 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile php/PSR-2
+2017.09.29 09:46:46 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile php/Drupal
+2017.09.29 09:46:46 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile js/Sonar way Recommended
+2017.09.29 09:46:47 INFO  web[][o.s.s.q.RegisterQualityProfiles] Update profile js/Sonar way
+2017.09.29 09:46:47 INFO  web[][o.s.s.s.RegisterPermissionTemplates] Register permission templates
+2017.09.29 09:46:47 INFO  web[][o.s.s.s.RenameDeprecatedPropertyKeys] Rename deprecated property keys
+2017.09.29 09:46:47 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.ws.WebServiceFilter@74d62265 [pattern=UrlPattern{inclusions=[/api/measures/component/*, ...], exclusions=[/api/properties*, ...]}]
+2017.09.29 09:46:47 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.ws.DeprecatedPropertiesWsFilter@7473d59b [pattern=UrlPattern{inclusions=[/api/properties/*], exclusions=[]}]
+2017.09.29 09:46:47 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.ws.WebServiceReroutingFilter@742ce3b5 [pattern=UrlPattern{inclusions=[/api/components/bulk_update_key, ...], exclusions=[]}]
+2017.09.29 09:46:47 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.InitFilter@7a1390cc [pattern=UrlPattern{inclusions=[/sessions/init/*], exclusions=[]}]
+2017.09.29 09:46:47 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.OAuth2CallbackFilter@4e0f3b9a [pattern=UrlPattern{inclusions=[/oauth2/callback/*], exclusions=[]}]
+2017.09.29 09:46:47 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.ws.LoginAction@7f4f2ff9 [pattern=UrlPattern{inclusions=[/api/authentication/login], exclusions=[]}]
+2017.09.29 09:46:47 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.ws.LogoutAction@7f67a8f2 [pattern=UrlPattern{inclusions=[/api/authentication/logout], exclusions=[]}]
+2017.09.29 09:46:47 INFO  web[][o.s.s.p.w.MasterServletFilter] Initializing servlet filter org.sonar.server.authentication.ws.ValidateAction@2594aa6 [pattern=UrlPattern{inclusions=[/api/authentication/validate], exclusions=[]}]
+2017.09.29 09:46:47 INFO  web[][o.s.s.n.NotificationDaemon] Notification service started (delay 60 sec.)
+2017.09.29 09:46:47 INFO  web[][o.s.s.n.NotificationDaemon] Notification service stopped
+2017.09.29 09:46:47 INFO  web[][o.s.s.p.Platform] WebServer is operational
